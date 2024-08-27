@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Foro{% endblock %}
+{% block head %}
+    <style>
+        div.Peli{
+            padding-left: 30%;
+            padding-top: 5%;
+        }
+        div.post{
+            padding-left: 35%;
+            padding-top: 1%;
+            border: 5%;
+            width: max-content;
+        }
+        div.estilop{
+            margin-block: 2%;
+            outline: auto;
+    </style>
+{{super()}}
+{% endblock %}
+{% block body %}
+    <div class="Peli">
+        <form action="" method="POST" class="form-box animate__animated animate__fadeInUp" >
+            <input type="text" placeholder="Titulo" name="titulo">
+            <input type="text" placeholder="Comentario" name="comentario">
+            <input type="submit" id="publicar" name="publicar" value="Publicar">
+        </form>
+    </div>
+    {%for posts in posts%}
+    <div class="post" >
+        <div class="estilop">
+            <div>
+                <p>Usuario: {{posts[0]}}</p>
+            </div>
+            <div class="titulo">
+                <p>Titulo: {{posts[1]}}</p>
+            </div>
+            <div>
+                <p>Comentario: {{posts[2]}}</p>
+            </div>
+        </div>
+    </div>{% endfor %}
+    
+{% endblock %}
